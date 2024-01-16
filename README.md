@@ -1,12 +1,11 @@
-This is my solution the test for ZEPTO - Frontend SDE 1 Job Opening
+This is my solution to the test for ZEPTO - Frontend SDE 1 Job Opening
 
 The solution has been implemented in NextJs. For CSS, I have used TailwindCSS, and React-icons for the X icon besides the name in a chip. For Type checking, I have used Typescript. 
 For the solution, I created a list containing 30 names which is used to show in the dropdown under the input field.
 
 
 
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

@@ -1,11 +1,12 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"; 
+import { useEffect, useId, useRef, useState } from "react"; 
 import { names } from "../data/namesList";
 import Chip from "./Chip";
 import { useChipListContext } from "@/context";
 
 export default function InputField() {
+  const id = useId();
   const focusRef = useRef<HTMLInputElement>(null);
   const listItemRef = useRef<HTMLDivElement[]>([]);
   
@@ -43,7 +44,7 @@ export default function InputField() {
       {
         chipList.map((chip: string, index: number) => {
           return (
-              <div ref={(el: HTMLDivElement) => listItemRef.current[index] = el}>
+              <div key={`${id}-${index}`} ref={(el: HTMLDivElement) => listItemRef.current[index] = el}>
                 <Chip name={chip} style={`${isItemOnFocus === true && index === chipList.length - 1? 'border-red-500 border-2': ''}`}
                 />
               </div>
@@ -59,8 +60,8 @@ export default function InputField() {
           (<div className={`absolute bg-white border-black border-2 max-h-[200px] w-[180px] overflow-scroll ${chipList.length === 0? 'mt-10': 'mt-14'}`}>
               {
                 list.length !== 0
-                ? list.map((name: string) => {
-                  return <p onClick={() => {
+                ? list.map((name: string, index) => {
+                  return <p key={`${id}-${index}`} onClick={() => {
                     addNameToChipList(name);
                     setIsItemOnFocus(false);
                     focusRef.current!.focus();
